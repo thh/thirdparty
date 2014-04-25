@@ -688,12 +688,12 @@ avro_schema_t avro_schema_link_target(avro_schema_t schema)
 }
 
 static const char *
-qualify_name(const char *name, const char *namespace)
+qualify_name(const char *name, const char *_namespace_)
 {
 	char *full_name;
-	if (namespace != NULL && strchr(name, '.') == NULL) {
-		full_name = avro_str_alloc(strlen(name) + strlen(namespace) + 2);
-		sprintf(full_name, "%s.%s", namespace, name);
+	if (_namespace_ != NULL && strchr(name, '.') == NULL) {
+		full_name = avro_str_alloc(strlen(name) + strlen(_namespace_) + 2);
+		sprintf(full_name, "%s.%s", _namespace_, name);
 	} else {
 		full_name = avro_strdup(name);
 	}
@@ -701,21 +701,21 @@ qualify_name(const char *name, const char *namespace)
 }
 
 static int
-save_named_schemas(const char *name, const char *namespace, avro_schema_t schema, st_table *st)
+save_named_schemas(const char *name, const char *_namespace_, avro_schema_t schema, st_table *st)
 {
-	const char *full_name = qualify_name(name, namespace);
+	const char *full_name = qualify_name(name, _namespace_);
 	int rval = st_insert(st, (st_data_t) full_name, (st_data_t) schema);
 	return rval;
 }
 
 static avro_schema_t
-find_named_schemas(const char *name, const char *namespace, st_table *st)
+find_named_schemas(const char *name, const char *_namespace_, st_table *st)
 {
 	union {
 		avro_schema_t schema;
 		st_data_t data;
 	} val;
-	const char *full_name = qualify_name(name, namespace);
+	const char *full_name = qualify_name(name, _namespace_);
 	int rval = st_lookup(st, (st_data_t) full_name, &(val.data));
 	avro_str_free((char *)full_name);
 	if (rval) {
@@ -728,7 +728,7 @@ find_named_schemas(const char *name, const char *namespace, st_table *st)
 static int
 avro_type_from_json_t(json_t *json, avro_type_t *type,
 		      st_table *named_schemas, avro_schema_t *named_type,
-		      const char *namespace)
+		      const char *_namespace_)
 {
 	json_t *json_type;
 	const char *type_str;
@@ -779,7 +779,7 @@ avro_type_from_json_t(json_t *json, avro_type_t *type,
 		*type = AVRO_MAP;
 	} else if (strcmp(type_str, "fixed") == 0) {
 		*type = AVRO_FIXED;
-	} else if ((*named_type = find_named_schemas(type_str, namespace, named_schemas))) {
+	} else if ((*named_type = find_named_schemas(type_str, _namespace_, named_schemas))) {
 		*type = AVRO_LINK;
 	} else {
 		avro_set_error("Unknown Avro \"type\": %s", type_str);
@@ -1625,9 +1625,9 @@ static int write_link(avro_writer_t out, const struct avro_link_schema_t *link,
 	int rval;
 	check(rval, avro_write_str(out, "\""));
 	if (is_avro_record(link->to)) {
-		const char *namespace = avro_schema_to_record(link->to)->space;
-		if (nullstrcmp(namespace, parent_namespace)) {
-			check(rval, avro_write_str(out, namespace));
+		const char *_namespace_ = avro_schema_to_record(link->to)->space;
+		if (nullstrcmp(_namespace_, parent_namespace)) {
+			check(rval, avro_write_str(out, _namespace_));
 			check(rval, avro_write_str(out, "."));
 		}
 	}
