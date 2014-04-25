@@ -22,4 +22,4 @@ set(CMAKE_INSTALL_PREFIX  ${PROJECT_SOURCE_DIR}/${OUTPUT_BUILD_TYPE}_${OUTPUT_CP
 
 add_subdirectory(sources/libevent)
 add_subdirectory(sources/AvroC)
-#add_subdirectory(sources/zlib/1.2.8)
+add_subdirectory(sources/zlib/1.2.8)
