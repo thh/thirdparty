@@ -5,7 +5,16 @@
 #
 ###############################################################
 cmake_minimum_required(VERSION 2.8)
-project(thirdparty CXX)
+project(thirdparty CXX C)
+
+string(TOLOWER ${CMAKE_BUILD_TYPE} OUTPUT_BUILD_TYPE)
+
+set(OUTPUT_CPU_ARCH x86)
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+  set(OUTPUT_CPU_ARCH amd64)
+endif()
+
+set(CMAKE_INSTALL_PREFIX  ${PROJECT_SOURCE_DIR}/${OUTPUT_BUILD_TYPE}_${OUTPUT_CPU_ARCH})
 
 #set(URL "https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz")
 
@@ -13,3 +22,4 @@ project(thirdparty CXX)
 
 add_subdirectory(sources/libevent)
 add_subdirectory(sources/AvroC)
+#add_subdirectory(sources/zlib/1.2.8)
