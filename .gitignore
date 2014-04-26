@@ -229,8 +229,20 @@ debug_amd64/
 dists/
 
 ####################################
-## sources/bzip2/1.0.6
+## sources folder
 ####################################
 sources/bzip2/1.0.6/*.exe
 sources/bzip2/1.0.6/*.lib
 sources/bzip2/1.0.6/*.obj
+#sources/openssl/1.0.1g/Makefile
+#sources/openssl/1.0.1g/crypto/opensslconf.h
+sources/openssl/1.0.1g/MINFO
+sources/openssl/1.0.1g/crypto/buildinf.h
+sources/openssl/1.0.1g/inc32/
+sources/openssl/1.0.1g/ms/libeay32.def
+sources/openssl/1.0.1g/ms/nt.mak
+sources/openssl/1.0.1g/ms/ntdll.mak
+sources/openssl/1.0.1g/ms/ssleay32.def
+sources/openssl/1.0.1g/ms/version32.rc
+sources/openssl/1.0.1g/out32dll/
+sources/openssl/1.0.1g/tmp32dll/
