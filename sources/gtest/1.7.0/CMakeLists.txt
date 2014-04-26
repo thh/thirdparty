@@ -29,7 +29,7 @@ if (COMMAND pre_project_set_up_hermetic_build)
   pre_project_set_up_hermetic_build()
 endif()
 
-message('gtest_force_shared_crt: ${gtest_force_shared_crt}')
+#message('gtest_force_shared_crt: ${gtest_force_shared_crt}')
 ########################################################################
 #
 # Project-wide settings
