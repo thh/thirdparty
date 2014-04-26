@@ -218,3 +218,19 @@ pip-log.txt
 ## sublime text 2
 ##################
 *.sublime-*
+
+##################
+## binaries
+##################
+release_x86/
+release_amd64/
+debug_x86/
+debug_amd64/
+dists/
+
+####################################
+## sources/bzip2/1.0.6
+####################################
+sources/bzip2/1.0.6/*.exe
+sources/bzip2/1.0.6/*.lib
+sources/bzip2/1.0.6/*.obj
