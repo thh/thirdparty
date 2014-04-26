@@ -20,6 +20,9 @@ set(CMAKE_INSTALL_PREFIX  ${PROJECT_SOURCE_DIR}/${OUTPUT_BUILD_TYPE}_${OUTPUT_CP
 
 #file(DOWNLOAD "${URL}" "${PROJECT_SOURCE_DIR}/dists/libevent-2.0.21-stable.tar.gz" SHOW_PROGRESS)
 
+#add_subdirectory(sources/test)
+add_subdirectory(sources/zlib/1.2.8)
+add_subdirectory(sources/bzip2)
 add_subdirectory(sources/libevent)
 add_subdirectory(sources/AvroC)
-add_subdirectory(sources/zlib/1.2.8)
+add_subdirectory(sources/gtest)
