@@ -246,3 +246,4 @@ sources/openssl/1.0.1g/ms/ssleay32.def
 sources/openssl/1.0.1g/ms/version32.rc
 sources/openssl/1.0.1g/out32dll/
 sources/openssl/1.0.1g/tmp32dll/
+sources/boost/1.55.0
