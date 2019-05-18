@@ -1,0 +1,3 @@
+[submodule "sources/gtest/origin"]
+	path = sources/gtest/origin
+	url = https://github.com/google/googletest.git

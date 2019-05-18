@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 2.8)
 project(gtest CXX)
 
 set(gtest_force_shared_crt ON)
-set(GTEST_SOURCE_DIRECTORY 1.7.0)
+set(GTEST_SOURCE_DIRECTORY origin)
 #message (${PROJECT_BINARY_DIR})
 
 add_subdirectory(${GTEST_SOURCE_DIRECTORY} gtest)
 
-install(DIRECTORY ${GTEST_SOURCE_DIRECTORY}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
-install(DIRECTORY ${GTEST_SOURCE_DIRECTORY}/src/     DESTINATION src     FILES_MATCHING PATTERN "*")
+install(DIRECTORY ${GTEST_SOURCE_DIRECTORY}/googletest/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY ${GTEST_SOURCE_DIRECTORY}/googletest/src/     DESTINATION src     FILES_MATCHING PATTERN "*")
 
 if(DEFINED WIN32)      
     install(FILES ${PROJECT_BINARY_DIR}/gtest/gtest.lib DESTINATION lib)
