@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(boost CXX)
 
-set(ZLIB_SOURCE  ${PROJECT_SOURCE_DIR}/../zlib/1.2.8)
+set(ZLIB_SOURCE  ${PROJECT_SOURCE_DIR}/../zlib/origin)
 set(BZIP2_SOURCE ${PROJECT_SOURCE_DIR}/../bzip2/1.0.6)
 set(BOOST_SOURCE_DIRECTORY ${PROJECT_SOURCE_DIR}/1.55.0)
 
