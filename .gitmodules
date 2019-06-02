@@ -4,3 +4,6 @@
 [submodule "sources/zlib/origin"]
 	path = sources/zlib/origin
 	url = https://github.com/madler/zlib.git
+[submodule "sources/libuv/origin"]
+	path = sources/libuv/origin
+	url = https://github.com/libuv/libuv.git
