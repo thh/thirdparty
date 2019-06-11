@@ -7,3 +7,6 @@
 [submodule "sources/libuv/origin"]
 	path = sources/libuv/origin
 	url = https://github.com/libuv/libuv.git
+[submodule "sources/libarchive/origin"]
+	path = sources/libarchive/origin
+	url = https://github.com/libarchive/libarchive
